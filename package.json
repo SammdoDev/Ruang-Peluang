@@ -1,0 +1,10 @@
+{
+  "name": "peluang-atlas",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "rm -rf dist && mkdir -p dist && cp index.html styles.css app.js proposal.js ideas.js ideas-extra.js dist/",
+    "check": "node --check app.js && node --check proposal.js && node --check ideas.js && node --check ideas-extra.js && node verify.mjs && node verify-ui.mjs && node verify-proposal.mjs"
+  }
+}

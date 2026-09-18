@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f7f8f5" />
+  <title>Ruang Peluang — Database ide bisnis</title>
+  <meta name="description" content="100 model bisnis luar negeri untuk diteliti dan diuji di Indonesia." />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="topbar" id="atas">
+    <a class="brand" href="#atas" aria-label="Ruang Peluang, ke atas">Ruang Peluang<span class="brand-dot">.</span></a>
+    <nav aria-label="Navigasi utama"><a href="#jelajahi">Jelajahi ide</a><a href="#metode">Metode</a><button type="button" id="openProposalTop">Usulkan ide</button></nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <span class="overline">DATABASE IDE BISNIS / EDISI SEPTEMBER 2026</span>
+        <h1 id="hero-title">Model bisnis dari luar.<br><span>Diuji untuk Indonesia.</span></h1>
+        <p>Jelajahi 100 konsep dari produk, kuliner, hotel, dan sektor lain. Setiap ide punya contoh nyata, asumsi pasar lokal, langkah uji, serta risiko yang perlu diperiksa.</p>
+        <a class="primary-link" href="#jelajahi">Jelajahi ide</a>
+      </div>
+      <div class="hero-summary" aria-label="Ringkasan katalog"><div><strong>100</strong><span>ide riset</span></div><div><strong>4</strong><span>kategori</span></div><p>Baca tanpa akun. Simpan dan bandingkan ide di browsermu.</p></div>
+    </section>
+
+    <section class="explorer" id="jelajahi" aria-labelledby="explorer-title">
+      <div class="section-heading"><div><span class="overline">KATALOG</span><h2 id="explorer-title">Temukan ide yang ingin kamu uji.</h2></div><p>Gunakan filter untuk mempersempit pilihan. Skor awal dapat kamu ubah.</p></div>
+      <div class="research-note"><strong>Catatan riset</strong><p>Tautan sumber menunjukkan contoh model di luar negeri. Potensi, persaingan, monetisasi, dan kesulitan untuk Indonesia adalah asumsi awal, bukan hasil survei pasar.</p></div>
+      <div class="workspace">
+        <aside class="filters" aria-label="Filter ide">
+          <div class="filter-head"><strong>Filter</strong><button id="resetFilters" type="button">Reset</button></div>
+          <label class="field-label" for="query">Cari</label>
+          <input class="search-input" type="search" id="query" placeholder="Nama ide, model, atau contoh" autocomplete="off" />
+          <div class="filter-block"><div class="field-label">Kategori</div><div class="category-list" id="categoryList"></div></div>
+          <div class="filter-block"><label class="field-label" for="complexity">Kompleksitas</label><select id="complexity"><option value="">Semua tingkat</option><option>Rendah</option><option>Sedang</option><option>Tinggi</option></select></div>
+          <div class="filter-block"><label class="field-label" for="businessModel">Model bisnis</label><select id="businessModel"><option value="">Semua model</option><option>Marketplace</option><option>SaaS</option><option>Langganan</option><option>Managed service</option></select></div>
+          <button class="saved-filter" id="savedFilter" type="button">Ide tersimpan <strong id="savedCount">0</strong></button>
+        </aside>
+        <div class="results">
+          <div class="results-toolbar"><p><strong id="resultCount">100 ide</strong> <span id="activeDescriptor"></span></p><label for="sort">Urutkan <select id="sort"><option value="score">Skor tertinggi</option><option value="title">Nama A–Z</option><option value="complexity">Paling mudah</option></select></label></div>
+          <div class="cards" id="cards" aria-live="polite"></div>
+          <button type="button" id="loadMore" class="load-more" hidden>Muat lebih banyak</button>
+          <div class="empty" id="empty" hidden><h3>Tidak ada yang cocok</h3><p>Coba kata lain atau reset filter.</p><button type="button" id="emptyReset">Reset filter</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="method" id="metode" aria-labelledby="method-title">
+      <div class="method-copy"><span class="overline">TENTANG DATABASE</span><h2 id="method-title">Data yang bisa ditelusuri. Asumsi yang bisa diperdebatkan.</h2><p>Contoh luar negeri berasal dari halaman operatornya. Hipotesis untuk Indonesia perlu diperiksa lewat pelanggan, pesaing, regulasi, dan uji lapangan. Skor hanya alat bantu membandingkan, tersimpan di browsermu.</p></div>
+      <div class="contribution" id="kontribusi"><span class="overline">KONTRIBUSI</span><h3>Punya model bisnis lain?</h3><p>Jelajahi tanpa akun. Untuk mengusulkan ide, siapkan contoh dan sumbernya di sini, lalu masuk dengan GitHub untuk mengirim usulan. Setiap usulan ditinjau sebelum masuk katalog.</p><button type="button" id="openProposal">Tulis usulan ide</button><a class="contribution-link" href="https://github.com/SammdoDev/Ruang-Peluang" target="_blank" rel="noopener noreferrer">Lihat kode dan panduan kontribusi di GitHub</a></div>
+    </section>
+  </main>
+
+  <footer><span>© 2026 Ruang Peluang</span><span>100 ide untuk riset, bukan rekomendasi investasi.</span><a href="#atas">Kembali ke atas</a></footer>
+  <div id="compareBar" class="compare-bar" hidden></div>
+  <div id="overlay" class="overlay" hidden></div>
+  <div id="drawer" class="drawer" role="dialog" aria-modal="true" aria-label="Detail ide" hidden></div>
+  <div id="compareDialog" class="compare-dialog" role="dialog" aria-modal="true" aria-label="Perbandingan ide" hidden></div>
+  <div id="proposalDialog" class="proposal-dialog" role="dialog" aria-modal="true" aria-labelledby="proposalTitle" hidden>
+    <div class="dialog-head"><div><span class="overline">DRAF KONTRIBUSI</span><h2 id="proposalTitle">Usulkan ide bisnis</h2></div><button type="button" class="close" data-close="true" aria-label="Tutup formulir">Tutup</button></div>
+    <p class="dialog-intro">Isi contoh yang bisa ditelusuri dan pisahkan fakta dari perkiraan untuk Indonesia. Simpan draf di browsermu, atau masuk dengan GitHub untuk mengirimnya sebagai usulan publik.</p>
+    <form id="proposalForm">
+      <div class="form-grid"><label>Nama ide<input name="title" required maxlength="100" placeholder="Contoh: ..." /></label><label>Kategori<select name="category" required><option value="">Pilih kategori</option><option>Produk</option><option>Kuliner</option><option>Hotel</option><option>Lainnya</option></select></label></div>
+      <label>Ringkasan model<textarea name="summary" required maxlength="400" rows="2" placeholder="Apa yang dilakukan dan untuk siapa?"></textarea></label>
+      <div class="form-grid"><label>Contoh operator luar negeri<input name="example" required maxlength="100" placeholder="Nama perusahaan atau produk" /></label><label>Tautan sumber<input name="source" required type="url" pattern="https://.*" placeholder="https://..." /></label></div>
+      <label>Bukti dari sumber<textarea name="evidence" required maxlength="500" rows="2" placeholder="Apa yang benar-benar terlihat pada sumber?"></textarea></label>
+      <label>Hipotesis Indonesia<textarea name="hypothesis" required maxlength="500" rows="2" placeholder="Mengapa model ini mungkin cocok? Tandai sebagai asumsi."></textarea></label>
+      <div class="form-grid"><label>Uji awal<textarea name="pilot" required maxlength="350" rows="2" placeholder="Eksperimen kecil yang bisa dijalankan"></textarea></label><label>Risiko utama<textarea name="risk" required maxlength="350" rows="2" placeholder="Apa yang bisa menggagalkan modelnya?"></textarea></label></div>
+      <div class="form-actions"><button type="submit">Simpan draf</button><button type="button" id="downloadProposal">Unduh JSON</button><button type="button" class="primary" id="submitProposal">Kirim lewat GitHub</button></div>
+      <p id="proposalStatus" class="form-status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
